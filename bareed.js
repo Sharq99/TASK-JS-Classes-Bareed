@@ -73,9 +73,9 @@ class Wallet {
  **********************************************************/
 class Person {
   // implement Person!
-  constructor(name, location, wallet) {
+  constructor(name, location1, location2, wallet) {
     this.name = name;
-    this.location = new Point(location);
+    this.location = new Point(location1, location2);
     this.wallet = new Wallet(wallet);
   }
 
@@ -101,8 +101,8 @@ class Person {
  **********************************************************/
 class Vendor extends Person{
   // implement Vendor!
-  constructor(name, location, wallet = 0, range = 5, price = 1) {
-    super(name, location, wallet);
+  constructor(name, location1, location2, wallet = 0, range = 5, price = 1) {
+    super(name, location1, location2, wallet);
     this.range = this.range;
     this.price = this.price;
   }
@@ -133,8 +133,8 @@ class Vendor extends Person{
  **********************************************************/
 class Customer extends Person {
   // implement Customer!
-  constructor(name, location, wallet = 10) {
-    super(name, location, wallet);
+  constructor(name, location1, location2, wallet = 10) {
+    super(name, location1, location2, wallet);
   }
 
   _isInRange = vendor => {
