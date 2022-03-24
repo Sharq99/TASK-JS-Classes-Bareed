@@ -28,7 +28,6 @@ class Point {
     let y = Math.random() * (maxY || 100);
     return new Point(x, y);
   };
-  //const point = new Point(7,4);
 }
 
 /**********************************************************
@@ -59,9 +58,6 @@ class Wallet {
     total = this.money - amount.money;
     return total;
   };
-
-  //equals = Wallet => Wallet.money === this.money;
-
 }
 
 /**********************************************************
@@ -79,12 +75,12 @@ class Person {
   // implement Person!
   constructor(name, location, wallet) {
     this.name = name;
-    this.Point = location;
-    this.Wallet = wallet;
+    this.location = new Point(location);
+    this.wallet = new Wallet(wallet);
   }
 
   moveTo = point => { 
-   this.location.distanceTo(point);
+   return this.location.equals(point);
   };
 }
 
