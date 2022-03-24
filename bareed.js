@@ -80,7 +80,7 @@ class Person {
   }
 
   moveTo = point => { 
-   return this.location.equals(point);
+   this.location.distanceTo(point);
   };
 }
 
