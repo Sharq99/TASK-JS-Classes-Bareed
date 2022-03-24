@@ -109,9 +109,9 @@ class Vendor extends Person{
 
   sellTo = (customer, numberOfIceCreams) => {
     Vendor.location === customer.location;
-    let totalPrice = this.price * numberOfIceCreams
-    Vendor.wallet =+ totalPrice;
+    let totalPrice = this.price * numberOfIceCreams;
     customer.wallet =- totalPrice;
+    return Vendor.wallet =+ totalPrice;
   }
 }
 
@@ -152,7 +152,7 @@ class Customer extends Person {
   }
 
   requestIceCream = (vendor, numberOfIceCreams) => {
-    if(this.isInRange(vendor) === true && this.haveEnoughMoney(vendor, numberOfIceCreams) === true) return vendor.sellTo(this.Customer, numberOfIceCreams);
+    if(this._isInRange(vendor) === true && this._haveEnoughMoney(vendor, numberOfIceCreams) === true) return vendor.sellTo(this.Customer, numberOfIceCreams);
   }
 }
 
