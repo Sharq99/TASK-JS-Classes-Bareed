@@ -28,6 +28,7 @@ class Point {
     let y = Math.random() * (maxY || 100);
     return new Point(x, y);
   };
+  //const point = new Point(7,4);
 }
 
 /**********************************************************
@@ -43,11 +44,24 @@ class Point {
  **********************************************************/
 class Wallet {
   // implement Wallet!
-  constructor(money = 0) {}
+  constructor(money = 0) {
+    this.money = money;
+  }
 
-  credit = amount => {};
+  credit = amount => { 
+    let total = 0;
+    total = this.money + amount.money;
+    return total;
+  };
 
-  debit = amount => {};
+  debit = amount => {
+    let total = 0;
+    total = this.money - amount.money;
+    return total;
+  };
+
+  equals = Wallet => Wallet.money === this.money;
+
 }
 
 /**********************************************************
@@ -63,6 +77,15 @@ class Wallet {
  **********************************************************/
 class Person {
   // implement Person!
+  constructor(name, location, wallet) {
+    this.name = name;
+    this.Point = location;
+    this.Wallet = wallet = 0;
+  }
+ // moveTo(point): updates the `location` to `point`
+  moveTo = point => { 
+   return this.location.distanceTo(point);
+  };
 }
 
 /**********************************************************
@@ -80,8 +103,20 @@ class Person {
  *
  * new vendor = new Vendor(name, x, y);
  **********************************************************/
-class Vendor {
+class Vendor extends Person{
   // implement Vendor!
+  constructor(name, location, wallet = 0, range = 5, price = 1) {
+    super(name, location, wallet);
+    this.range = this.range;
+    this.price = this.price;
+  }
+
+  sellTo = (customer, numberOfIceCreams) => {
+    Vendor.location === customer.location;
+    let totalPrice = this.price * numberOfIceCreams
+    Vendor.wallet =+ totalPrice;
+    customer.wallet =- totalPrice;
+  }
 }
 
 /**********************************************************
@@ -100,8 +135,29 @@ class Vendor {
  *
  * new customer = new Customer(name, x, y);
  **********************************************************/
-class Customer {
+class Customer extends Person {
   // implement Customer!
+  constructor(name, location, wallet = 10) {
+    super(name, location, wallet);
+  }
+
+  _isInRange = vendor => {
+    let customerRange = this.location.distanceTo();
+
+    if(vendor.range >= customerRange) return true;
+    else return false;
+  }
+
+  _haveEnoughMoney = (vendor, numberOfIceCreams) => {
+    let totalPrice = vendor.price * numberOfIceCreams;
+
+    if(this.wallet >= totalPrice) return true;
+    else return false;
+  }
+
+  requestIceCream = (vendor, numberOfIceCreams) => {
+    if(this.isInRange === true && this.haveEnoughMoney === true) return vendor.sellTo();
+  }
 }
 
 export { Point, Wallet, Person, Customer, Vendor };
