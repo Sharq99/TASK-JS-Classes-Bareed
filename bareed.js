@@ -73,14 +73,14 @@ class Wallet {
  **********************************************************/
 class Person {
   // implement Person!
-  constructor(name, location1, location2, wallet) {
+  constructor(name,location1, location2, wallet) {
     this.name = name;
     this.location = new Point(location1, location2);
     this.wallet = new Wallet(wallet);
   }
 
   moveTo = point => { 
-   this.location.distanceTo(point);
+   this.location = point;
   };
 }
 
@@ -103,8 +103,8 @@ class Vendor extends Person{
   // implement Vendor!
   constructor(name, location1, location2, wallet = 0, range = 5, price = 1) {
     super(name, location1, location2, wallet);
-    this.range = this.range;
-    this.price = this.price;
+    this.range = range;
+    this.price = price;
   }
 
   sellTo = (customer, numberOfIceCreams) => {
