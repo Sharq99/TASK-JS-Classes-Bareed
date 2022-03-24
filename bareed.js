@@ -60,7 +60,7 @@ class Wallet {
     return total;
   };
 
-  equals = Wallet => Wallet.money === this.money;
+  //equals = Wallet => Wallet.money === this.money;
 
 }
 
@@ -80,11 +80,11 @@ class Person {
   constructor(name, location, wallet) {
     this.name = name;
     this.Point = location;
-    this.Wallet = wallet = 0;
+    this.Wallet = wallet;
   }
- // moveTo(point): updates the `location` to `point`
+
   moveTo = point => { 
-   return this.location.distanceTo(point);
+   this.location.distanceTo(point);
   };
 }
 
@@ -142,7 +142,7 @@ class Customer extends Person {
   }
 
   _isInRange = vendor => {
-    let customerRange = this.location.distanceTo();
+    let customerRange = this.location.distanceTo(this.location);
 
     if(vendor.range >= customerRange) return true;
     else return false;
@@ -156,7 +156,7 @@ class Customer extends Person {
   }
 
   requestIceCream = (vendor, numberOfIceCreams) => {
-    if(this.isInRange === true && this.haveEnoughMoney === true) return vendor.sellTo();
+    if(this.isInRange(vendor) === true && this.haveEnoughMoney(vendor, numberOfIceCreams) === true) return vendor.sellTo(this.Customer, numberOfIceCreams);
   }
 }
 
