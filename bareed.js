@@ -142,7 +142,7 @@ class Customer extends Person {
   }
 
   _haveEnoughMoney = (vendor, numberOfIceCreams) => {
-    let totalPrice = vendor.price * numberOfIceCreams;
+    let totalPrice = numberOfIceCreams * vendor.price;
 
     if(this.wallet >= totalPrice) return true;
     else return false;
