@@ -135,9 +135,9 @@ class Customer extends Person {
   }
 
   _isInRange = vendor => {
-    //let customerRange = this.location.distanceTo(this.location);
+    let customerRange = this.location.distanceTo(this.location);
 
-    if(vendor.range === this.location.distanceTo(this.location)) return true;
+    if(customerRange <= vendor.range) return true;
     else return false;
   }
 
@@ -150,7 +150,7 @@ class Customer extends Person {
 
   requestIceCream = (vendor, numberOfIceCreams) => {
     if(this._isInRange(vendor) === true && this._haveEnoughMoney(vendor, numberOfIceCreams) === true) {
-      return vendor.sellTo(this.Customer, numberOfIceCreams);
+      vendor.sellTo(this.Customer, numberOfIceCreams);
     }
   }
 }
